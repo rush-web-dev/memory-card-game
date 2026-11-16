@@ -6,3 +6,7 @@
   border-radius: 10px;
   background-color: lightblue;
 }
+
+.clicked-card {
+  background-color: pink;
+}

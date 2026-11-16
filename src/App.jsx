@@ -6,15 +6,19 @@ import Card from "./components/Card.jsx";
 function App() {
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
-  function handleScoreIncrease() {
+  const [clickedList, setClickedList] = useState([]);
+  function handleScoreIncrease(cardTitle) {
     const newScore = score + 1;
     if (newScore > bestScore) {
       setBestScore(newScore);
     }
     setScore(newScore);
+    const newClickedList = [cardTitle, ...clickedList];
+    setClickedList(newClickedList);
   }
   function handleFail() {
     setScore(0);
+    setClickedList([]);
   }
 
   return (
@@ -25,12 +29,19 @@ function App() {
         title={"hello"}
         handleClick={handleScoreIncrease}
         fail={handleFail}
+        isClicked={clickedList.includes("hello")}
       />
-      <Card title={"hi"} handleClick={handleScoreIncrease} fail={handleFail} />
+      <Card
+        title={"hi"}
+        handleClick={handleScoreIncrease}
+        fail={handleFail}
+        isClicked={clickedList.includes("hi")}
+      />
       <Card
         title={"bonjour"}
         handleClick={handleScoreIncrease}
         fail={handleFail}
+        isClicked={clickedList.includes("bonjour")}
       />
     </>
   );

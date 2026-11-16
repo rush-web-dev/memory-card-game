@@ -1,20 +1,18 @@
-import { useState } from "react";
-
-function Card({ title, handleClick, fail }) {
-  const [clicked, setClicked] = useState(false);
+function Card({ title, handleClick, fail, isClicked }) {
   function checkCorrect() {
-    if (!clicked) {
-      handleClick();
-      setClicked(true);
+    if (!isClicked) {
+      handleClick(title);
     } else {
-      setClicked(false);
       fail();
     }
   }
 
   return (
     <>
-      <div className="card" onClick={checkCorrect}>
+      <div
+        className={`card ${isClicked ? "clicked-card" : ""}`}
+        onClick={checkCorrect}
+      >
         {title}
       </div>
     </>
