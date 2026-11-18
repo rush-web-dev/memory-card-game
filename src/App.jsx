@@ -4,6 +4,7 @@ import CurrentScore from "./components/CurrentScore.jsx";
 import Card from "./components/Card.jsx";
 
 function App() {
+  const cards = ["hello", "hi", "bonjour", "bosoir"];
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
   const [clickedList, setClickedList] = useState([]);
@@ -25,7 +26,17 @@ function App() {
     <>
       <BestScore score={bestScore} />
       <CurrentScore score={score} />
-      <Card
+      {cards.map((cardTitle) => (
+        <Card
+          key={cardTitle}
+          title={cardTitle}
+          handleClick={handleScoreIncrease}
+          fail={handleFail}
+          isClicked={clickedList.includes(cardTitle)}
+        />
+      ))}
+
+      {/* <Card
         title={"hello"}
         handleClick={handleScoreIncrease}
         fail={handleFail}
@@ -42,7 +53,7 @@ function App() {
         handleClick={handleScoreIncrease}
         fail={handleFail}
         isClicked={clickedList.includes("bonjour")}
-      />
+      /> */}
     </>
   );
 }
