@@ -1,4 +1,4 @@
-function Card({ id, title, handleClick, fail, isClicked }) {
+function Card({ id, title, image, handleClick, fail, isClicked }) {
   function checkCorrect() {
     if (!isClicked) {
       handleClick(id);
@@ -9,11 +9,8 @@ function Card({ id, title, handleClick, fail, isClicked }) {
 
   return (
     <>
-      <div
-        className={`card ${isClicked ? "clicked-card" : ""}`}
-        onClick={checkCorrect}
-      >
-        {title}
+      <div className={`card`} onClick={checkCorrect}>
+        <img src={image} alt={title} />
       </div>
     </>
   );
