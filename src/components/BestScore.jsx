@@ -1,5 +1,10 @@
 function BestScore({ score }) {
-  return <h1>Best Score: {score}</h1>;
+  return (
+    <div className="score-card">
+      <h2 className="score-label">Best Score</h2>
+      <p className="score-value">{score}</p>
+    </div>
+  );
 }
 
 export default BestScore;

@@ -1,5 +1,10 @@
 function CurrentScore({ score }) {
-  return <h1>Current Score: {score}</h1>;
+  return (
+    <div className="score-card">
+      <h2 className="score-label">Current Score</h2>
+      <p className="score-value">{score}</p>
+    </div>
+  );
 }
 
 export default CurrentScore;

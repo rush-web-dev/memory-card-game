@@ -1,13 +1,14 @@
 function Intro() {
   return (
-    <div>
-      <h1>Welcome to the Memory Card Game!</h1>
-      <p>
-        your goal is to click each image once, after you click the images will
-        be shuffled, if you click the same image twice you lose, try to get the
-        best score!
+    <header className="intro">
+      <h1 className="intro-title">Memory Card Game</h1>
+
+      <p className="intro-description">
+        Welcome to the Memory Card Game! Your goal is to click each image only
+        once. After every click, the images will shuffle. Click the same image
+        twice and you lose. Try to beat your best score!
       </p>
-    </div>
+    </header>
   );
 }
 

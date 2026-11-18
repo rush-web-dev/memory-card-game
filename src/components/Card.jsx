@@ -8,11 +8,10 @@ function Card({ id, title, image, handleClick, fail, isClicked }) {
   }
 
   return (
-    <>
-      <div className={`card`} onClick={checkCorrect}>
-        <img src={image} alt={title} />
-      </div>
-    </>
+    <div className="card" onClick={checkCorrect}>
+      <img className="card-image" src={image} alt={title} />
+      <p className="card-title">{title}</p>
+    </div>
   );
 }
 

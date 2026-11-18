@@ -77,22 +77,32 @@ function App() {
   }, []);
 
   return (
-    <>
+    <main className="game-container">
       <Intro />
-      <BestScore score={bestScore} />
-      <CurrentScore score={score} />
-      {cards.map((card) => (
-        <Card
-          key={card.id}
-          id={card.id}
-          title={card.title}
-          image={card.image}
-          handleClick={handleScoreIncrease}
-          fail={handleFail}
-          isClicked={clickedList.includes(card.id)}
-        />
-      ))}
-    </>
+
+      <section className="scores-container">
+        <CurrentScore score={score} />
+        <BestScore score={bestScore} />
+      </section>
+
+      <section className="cards-container">
+        {cards.length === 0 ? (
+          <p className="loading-message">Loading images...</p>
+        ) : (
+          cards.map((card) => (
+            <Card
+              key={card.id}
+              id={card.id}
+              title={card.title}
+              image={card.image}
+              handleClick={handleScoreIncrease}
+              fail={handleFail}
+              isClicked={clickedList.includes(card.id)}
+            />
+          ))
+        )}
+      </section>
+    </main>
   );
 }
 
