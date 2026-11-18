@@ -4,10 +4,15 @@ import CurrentScore from "./components/CurrentScore.jsx";
 import Card from "./components/Card.jsx";
 
 function App() {
-  const cards = ["hello", "hi", "bonjour", "bosoir"];
+  const [cards, setCards] = useState(["hello", "hi", "bonjour", "bosoir"]);
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
   const [clickedList, setClickedList] = useState([]);
+  function shuffleCards() {
+    const shuffledCards = [...cards];
+    shuffledCards.sort(() => Math.random() - 0.5);
+    setCards(shuffledCards);
+  }
   function handleScoreIncrease(cardTitle) {
     const newScore = score + 1;
     if (newScore > bestScore) {
@@ -16,10 +21,12 @@ function App() {
     setScore(newScore);
     const newClickedList = [cardTitle, ...clickedList];
     setClickedList(newClickedList);
+    shuffleCards();
   }
   function handleFail() {
     setScore(0);
     setClickedList([]);
+    shuffleCards();
   }
 
   return (
@@ -35,25 +42,6 @@ function App() {
           isClicked={clickedList.includes(cardTitle)}
         />
       ))}
-
-      {/* <Card
-        title={"hello"}
-        handleClick={handleScoreIncrease}
-        fail={handleFail}
-        isClicked={clickedList.includes("hello")}
-      />
-      <Card
-        title={"hi"}
-        handleClick={handleScoreIncrease}
-        fail={handleFail}
-        isClicked={clickedList.includes("hi")}
-      />
-      <Card
-        title={"bonjour"}
-        handleClick={handleScoreIncrease}
-        fail={handleFail}
-        isClicked={clickedList.includes("bonjour")}
-      /> */}
     </>
   );
 }
