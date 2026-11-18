@@ -1,7 +1,7 @@
-function Card({ title, handleClick, fail, isClicked }) {
+function Card({ id, title, handleClick, fail, isClicked }) {
   function checkCorrect() {
     if (!isClicked) {
-      handleClick(title);
+      handleClick(id);
     } else {
       fail();
     }
