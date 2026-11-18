@@ -1,5 +1,5 @@
 function CurrentScore({ score }) {
-  return <h1>score: {score}</h1>;
+  return <h1>Current Score: {score}</h1>;
 }
 
 export default CurrentScore;

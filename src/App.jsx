@@ -3,6 +3,7 @@ import BestScore from "./components/BestScore.jsx";
 import CurrentScore from "./components/CurrentScore.jsx";
 import Card from "./components/Card.jsx";
 import API_KEY from "./api_key.js";
+import Intro from "./components/Intro.jsx";
 
 function App() {
   // const localImages = Object.values(
@@ -77,6 +78,7 @@ function App() {
 
   return (
     <>
+      <Intro />
       <BestScore score={bestScore} />
       <CurrentScore score={score} />
       {cards.map((card) => (
